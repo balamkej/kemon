@@ -6,6 +6,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QMainWindow, QAction, qApp, QApplication
 from PyQt5.QtGui import QIcon
 
+# The MainWindow class inherits from the QMainWindow class
 class MainWindow(QMainWindow):
     
     def __init__(self):
