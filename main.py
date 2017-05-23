@@ -3,38 +3,22 @@
 # Here we provide the necessary imports.
 # The basic GUI widgets are located in QtGui module. 
 import sys
-from PyQt5.QtWidgets import QWidget, QMainWindow, QAction, qApp, QApplication
+from PyQt5.QtWidgets import (QWidget, QMainWindow, QAction, qApp, QApplication, QPushButton)
 from PyQt5.QtGui import QIcon
+import mwDesign
 
 # The MainWindow class inherits from the QMainWindow class
-class MainWindow(QMainWindow):
+class KemonApp(QMainWindow, mwDesign.Ui_MainWindow):
     
-    def __init__(self):
-        super().__init__()
-        
-        self.initUI()
-        
-        
-    def initUI(self):
+    def __init__(self, parent=None):
+        super(KemonApp,self).__init__()
+        self.setupUi(self)
 
-        exitAction = QAction('&Exit', self)        
-        exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit application')
-        exitAction.triggered.connect(qApp.quit)
-
-        menubar = self.menuBar()
-        menubar.setNativeMenuBar(False)
-
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
-
-        self.setGeometry(100, 100, 600, 500)
-        self.setWindowTitle('Kemon')
-        self.setWindowIcon(QIcon('resources/icon.jpg'))        
-    
-        self.show()
+def main():
+    app = QApplication(sys.argv)
+    mw = KemonApp()
+    mw.show()
+    app.exec_()
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    mw = MainWindow()
-    sys.exit(app.exec_()) 
+    main()
