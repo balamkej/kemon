@@ -1,24 +1,14 @@
 #!/usr/bin/env python
 
-# Here we provide the necessary imports.
-# The basic GUI widgets are located in QtGui module. 
-import sys
-from PyQt5.QtWidgets import (QWidget, QMainWindow, QAction, qApp, QApplication, QPushButton)
-from PyQt5.QtGui import QIcon
-import mwDesign
+import tkinter as tk
 
-# The MainWindow class inherits from the QMainWindow class
-class KemonApp(QMainWindow, mwDesign.Ui_MainWindow):
-    
-    def __init__(self, parent=None):
-        super(KemonApp,self).__init__()
-        self.setupUi(self)
+root = tk.Tk()
 
-def main():
-    app = QApplication(sys.argv)
-    mw = KemonApp()
-    mw.show()
-    app.exec_()
+height = 5
+width = 5
+for i in range(height): #Rows
+    for j in range(width): #Columns
+        b = tk.Entry(root, text="")
+        b.grid(row=i, column=j)
 
-if __name__ == '__main__':
-    main()
+tk.mainloop()
