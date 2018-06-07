@@ -6,7 +6,7 @@ from PIL import ImageTk, Image
 
 root = tk.Tk()
 root.title("Kemon")
-root.geometry("100x100")
+root.geometry("150x150")
 
 path = "resources/icon.jpg"
 img = ImageTk.PhotoImage(Image.open(path))
