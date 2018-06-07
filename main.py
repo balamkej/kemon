@@ -48,6 +48,20 @@ for i in range(height): #Rows
 
 # Tie-up
 
+tieup = tk.Toplevel()
+tieup.title("Tie-up")
+
+height = 5
+width = 5
+for i in range(height): #Rows
+    for j in range(width): #Columns
+        b = tk.Spinbox(tieup, from_=0, to=1, width=1,
+                       font=Font(family='Helvetica',
+                       size=20,
+                       weight='bold'))
+        b.grid(row=i, column=j, padx=10, pady=10)
+
+
 # Color Palette
 
 # Menu
