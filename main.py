@@ -20,22 +20,22 @@ class Application():
     
     def createWidgets(self):
         self.WARP = tk.Toplevel()
-        self.WARP.title = ("Warp Grid")
+        self.WARP.title("Warp Grid")
         buildGrid(5,10,self.WARP)
 
         self.WEFT = tk.Toplevel()
-        self.WEFT.title = ("Weft Grid")
+        self.WEFT.title("Weft Grid")
         buildGrid(10,5,self.WEFT)
 
         self.TIEUP = tk.Toplevel()
-        self.TIEUP.title = ("Tie-Up Grid")
+        self.TIEUP.title("Tie-Up Grid")
         buildGrid(5,5,self.TIEUP)
 
     
-    def __init__(self, root, title): 
+    def __init__(self, root): 
         
         self.root = root
-        self.root.title(title)
+        self.root.title("Kemon")
         self.root.geometry("150x150")
 
         path = "resources/icon.jpg"
@@ -47,5 +47,5 @@ class Application():
         self.createWidgets()
         
 root = tk.Tk()
-app = Application(root, 'Kemon')
+app = Application(root)
 root.mainloop()
