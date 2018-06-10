@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import tkinter as tk
+import numpy as np
 from tkinter.font import Font
 from PIL import ImageTk, Image
 
@@ -14,6 +15,11 @@ def buildGrid(h,w,f):
                            size=20,
                            weight='bold'))
             b.grid(row=i, column=j, padx=10, pady=10)
+
+def gridArray(grid, height, width):
+    children = [e.get() for e in grid.winfo_children()]
+    gridArray = np.reshape(children, (height,width))
+    return gridArray
 
 
 class Application():
@@ -31,6 +37,10 @@ class Application():
         self.TIEUP.title("Tie-Up Grid")
         buildGrid(5,5,self.TIEUP)
 
+        #print(gridArray(self.TIEUP,5,5))
+        #print(gridArray(self.WARP,5,10))
+        #print(gridArray(self.WEFT,10,5))
+    
     
     def __init__(self, root): 
         
