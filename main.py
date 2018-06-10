@@ -21,8 +21,10 @@ def gridArray(grid, height, width):
     gridArray = np.reshape(children, (height,width))
     return gridArray
 
-
 class Application():
+
+    def weave(self):
+        return #Not Implemented
     
     def createWidgets(self):
         self.WARP = tk.Toplevel()
@@ -37,6 +39,20 @@ class Application():
         self.TIEUP.title("Tie-Up Grid")
         buildGrid(5,5,self.TIEUP)
 
+        self.WEAVEBUTTON = tk.Button(self.root, text='Weave',
+                                     command=self.weave)
+
+        self.QUITBUTTON = tk.Button(self.root, text='Quit',
+                                     command=self.root.quit)
+
+        
+        path = "resources/icon.jpg"
+        img = ImageTk.PhotoImage(Image.open(path))
+        self.PANEL = tk.Label(self.root, image=img)
+        self.PANEL.image = img
+
+
+        
         #print(gridArray(self.TIEUP,5,5))
         #print(gridArray(self.WARP,5,10))
         #print(gridArray(self.WEFT,10,5))
@@ -48,13 +64,12 @@ class Application():
         self.root.title("Kemon")
         self.root.geometry("150x150")
 
-        path = "resources/icon.jpg"
-        img = ImageTk.PhotoImage(Image.open(path))
-        self.PANEL = tk.Label(self.root, image=img)
-        self.PANEL.image = img
-        self.PANEL.pack(side="bottom", fill="both", expand="yes")
-
         self.createWidgets()
+
+        #self.PANEL.pack(side="bottom", fill="both", expand="yes")
+        self.PANEL.grid()
+        self.WEAVEBUTTON.grid()
+        self.QUITBUTTON.grid()
         
 root = tk.Tk()
 app = Application(root)
