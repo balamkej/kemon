@@ -23,22 +23,24 @@ def gridArray(grid, height, width):
     return gridArray
 
 class Application():
-
+    h = 5
+    w = 10
+    
     def weave(self):
-        return #Not Implemented
+        return #not implemented
     
     def createWidgets(self):
         self.WARP = tk.Toplevel()
         self.WARP.title("Warp Grid")
-        buildGrid(5,10,self.WARP)
+        buildGrid(self.h,self.w,self.WARP)
 
         self.WEFT = tk.Toplevel()
         self.WEFT.title("Weft Grid")
-        buildGrid(10,5,self.WEFT)
+        buildGrid(self.w,self.h,self.WEFT)
 
         self.TIEUP = tk.Toplevel()
         self.TIEUP.title("Tie-Up Grid")
-        buildGrid(5,5,self.TIEUP)
+        buildGrid(self.h,self.h,self.TIEUP)
 
         self.WEAVEBUTTON = tk.Button(self.root, text='Weave',
                                      command=self.weave)
