@@ -1,5 +1,6 @@
 import numpy as np
-from PIL import Image
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 
 def mushingIndex(treadleRow):
     return [i for i, j in enumerate(treadleRow) if j == 1]
@@ -22,7 +23,8 @@ def weave(treadle, threading, tieup):
     pattern = np.zeros((len(treadle[:,0]),len(threading[0])), int)
     for i in range(len(treadle[:,0])):
         pattern[i] = mushing(threading, mushing2(treadle[i],tieup))
-    return Image.fromarray(pattern)
+    img = plt.imshow(pattern, cmap=cm.gray)
+    return img
 
         
 #            treadleArray = np.genfromtxt(treadle, delimiter=",")

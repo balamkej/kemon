@@ -3,6 +3,7 @@
 import tkinter as tk
 import numpy as np
 import weaving as wv
+import matplotlib.pyplot as plt
 from tkinter.font import Font
 from PIL import ImageTk, Image
 
@@ -31,7 +32,7 @@ class Application():
         th_grid = gridArray(self.THREADING,self.w,self.h)
         ti_grid = gridArray(self.TIEUP,self.h,self.h)
         weav_img = wv.weave(tr_grid,th_grid,ti_grid)
-        weav_img.show()
+        plt.show()
     
     def createWidgets(self):
         self.TREADLE = tk.Toplevel()
