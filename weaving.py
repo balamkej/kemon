@@ -23,8 +23,7 @@ def weave(treadle, threading, tieup):
     pattern = np.zeros((len(treadle[:,0]),len(threading[0])), int)
     for i in range(len(treadle[:,0])):
         pattern[i] = mushing(threading, mushing2(treadle[i],tieup))
-    img = plt.imshow(pattern, cmap=cm.gray)
-    return img
+    return pattern
 
         
 #            treadleArray = np.genfromtxt(treadle, delimiter=",")

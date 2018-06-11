@@ -4,6 +4,7 @@ import tkinter as tk
 import numpy as np
 import weaving as wv
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from tkinter.font import Font
 from PIL import ImageTk, Image
 
@@ -32,7 +33,7 @@ class Application():
         th_grid = gridArray(self.THREADING,self.w,self.h)
         ti_grid = gridArray(self.TIEUP,self.h,self.h)
         weav_img = wv.weave(tr_grid,th_grid,ti_grid)
-        plt.show()
+        plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
     
     def createWidgets(self):
         self.TREADLE = tk.Toplevel()
