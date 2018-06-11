@@ -2,6 +2,7 @@
 
 import tkinter as tk
 import numpy as np
+import weaving as wv
 from tkinter.font import Font
 from PIL import ImageTk, Image
 
