@@ -27,12 +27,13 @@ class Application():
     w = 10
     
     def weave(self):
-        wv.weaving()
+        weav_img = wv.weave(self.TREADLE,self.THREADING,self.TIEUP)
+        weav_img.show()
     
     def createWidgets(self):
-        self.WARP = tk.Toplevel()
-        self.WARP.title("Treadle Grid")
-        buildGrid(self.h,self.w,self.WARP)
+        self.TREADLE = tk.Toplevel()
+        self.TREADLE.title("Treadle Grid")
+        buildGrid(self.h,self.w,self.TREADLE)
 
         self.THREADING = tk.Toplevel()
         self.THREADING.title("Threading Grid")
