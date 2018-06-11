@@ -25,7 +25,7 @@ def gridArray(grid, height, width):
     return gridArray
 
 class Application():
-    h = 5
+    h = 4
     w = 10
     
     def weave(self):
@@ -36,13 +36,13 @@ class Application():
         plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
     
     def createWidgets(self):
-        self.TREADLE = tk.Toplevel()
-        self.TREADLE.title("Treadle Grid")
-        buildGrid(self.h,self.w,self.TREADLE)
-
         self.THREADING = tk.Toplevel()
         self.THREADING.title("Threading Grid")
-        buildGrid(self.w,self.h,self.THREADING)
+        buildGrid(self.h,self.w,self.THREADING)
+
+        self.TREADLE = tk.Toplevel()
+        self.TREADLE.title("Treadle Grid")
+        buildGrid(self.w,self.h,self.TREADLE)
 
         self.TIEUP = tk.Toplevel()
         self.TIEUP.title("Tie-Up Grid")

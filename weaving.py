@@ -20,9 +20,13 @@ def mushing2(treadleRow,tieup):
     return row
 
 def weave(treadle, threading, tieup):
+    print(treadle)
+    print(threading)
+    print(tieup)
     pattern = np.zeros((len(treadle[:,0]),len(threading[0])), int)
     for i in range(len(treadle[:,0])):
         pattern[i] = mushing(threading, mushing2(treadle[i],tieup))
+    print(pattern)
     return pattern
 
         
