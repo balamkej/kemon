@@ -27,7 +27,10 @@ class Application():
     w = 10
     
     def weave(self):
-        weav_img = wv.weave(self.TREADLE,self.THREADING,self.TIEUP)
+        tr_grid = gridArray(self.TREADLE,self.h,self.w)
+        th_grid = gridArray(self.THREADING,self.w,self.h)
+        ti_grid = gridArray(self.TIEUP,self.h,self.h)
+        weav_img = wv.weave(tr_grid,th_grid,ti_grid)
         weav_img.show()
     
     def createWidgets(self):
