@@ -1,5 +1,5 @@
 import numpy as np
-From PIL import Image
+from PIL import Image
 
 def mushingIndex(treadleRow):
     return [i for i, j in enumerate(treadleRow) if j == 1]
