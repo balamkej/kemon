@@ -27,16 +27,16 @@ class Application():
     w = 10
     
     def weave(self):
-        return #not implemented
+        wv.weaving()
     
     def createWidgets(self):
         self.WARP = tk.Toplevel()
-        self.WARP.title("Warp Grid")
+        self.WARP.title("Treadle Grid")
         buildGrid(self.h,self.w,self.WARP)
 
-        self.WEFT = tk.Toplevel()
-        self.WEFT.title("Weft Grid")
-        buildGrid(self.w,self.h,self.WEFT)
+        self.THREADING = tk.Toplevel()
+        self.THREADING.title("Threading Grid")
+        buildGrid(self.w,self.h,self.THREADING)
 
         self.TIEUP = tk.Toplevel()
         self.TIEUP.title("Tie-Up Grid")
@@ -57,8 +57,8 @@ class Application():
 
         
         #print(gridArray(self.TIEUP,5,5))
-        #print(gridArray(self.WARP,5,10))
-        #print(gridArray(self.WEFT,10,5))
+        #print(gridArray(self.TREADLE,5,10))
+        #print(gridArray(self.THREADING,10,5))
     
     
     def __init__(self, root): 
