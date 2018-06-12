@@ -20,23 +20,8 @@ def mushing2(treadleRow,tieup):
     return row
 
 def weave(treadle, threading, tieup):
-    print(treadle)
-    print(threading)
-    print(tieup)
     pattern = np.zeros((len(treadle[:,0]),len(threading[0])), int)
     for i in range(len(treadle[:,0])):
         pattern[i] = mushing(threading, mushing2(treadle[i],tieup))
-    print(pattern)
     return pattern
 
-        
-#            treadleArray = np.genfromtxt(treadle, delimiter=",")
-#            treadleArray = np.nan_to_num(treadleArray)
-#            threadingArray = np.genfromtxt(threading, delimiter=",")
-#            threadingArray = np.nan_to_num(threadingArray)
-#            tieupArray = np.genfromtxt(tieup, delimiter=",")
-#            tieupArray = np.nan_to_num(tieupArray)
-#            if request.form.get('Rotate') != None: 
-#                treadleArray = np.rot90(treadleArray)
-#            weaving = weave(treadleArray,threadingArray,tieupArray)
-#            plt.imsave('uploads/' + outname + '.png', weaving, cmap=cm.gray)

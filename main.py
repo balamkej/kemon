@@ -22,6 +22,7 @@ def buildGrid(h,w,f):
 def gridArray(grid, height, width):
     children = [e.get() for e in grid.winfo_children()]
     gridArray = np.reshape(children, (height,width))
+    gridArray = gridArray.astype(np.float)
     return gridArray
 
 class Application():
@@ -29,8 +30,8 @@ class Application():
     w = 10
     
     def weave(self):
-        tr_grid = gridArray(self.TREADLE,self.h,self.w)
-        th_grid = gridArray(self.THREADING,self.w,self.h)
+        th_grid = gridArray(self.THREADING,self.h,self.w)
+        tr_grid = gridArray(self.TREADLE,self.w,self.h)
         ti_grid = gridArray(self.TIEUP,self.h,self.h)
         weav_img = wv.weave(tr_grid,th_grid,ti_grid)
         plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
@@ -59,12 +60,6 @@ class Application():
         img = ImageTk.PhotoImage(Image.open(path))
         self.PANEL = tk.Label(self.root, image=img)
         self.PANEL.image = img
-
-
-        
-        #print(gridArray(self.TIEUP,5,5))
-        #print(gridArray(self.TREADLE,5,10))
-        #print(gridArray(self.THREADING,10,5))
     
     
     def __init__(self, root): 
@@ -75,7 +70,6 @@ class Application():
 
         self.createWidgets()
 
-        #self.PANEL.pack(side="bottom", fill="both", expand="yes")
         self.PANEL.grid()
         self.WEAVEBUTTON.grid()
         self.QUITBUTTON.grid()
