@@ -49,6 +49,13 @@ class Application():
         self.TIEUP.title("Tie-Up Grid")
         buildGrid(self.h,self.h,self.TIEUP)
 
+        self.WIDTHSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Width", orient=tk.HORIZONTAL)
+        self.HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Height", orient=tk.HORIZONTAL)
+        self.THREADLESCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
+
+        self.GRIDBUTTON = tk.Button(self.root, text='Set-up Loom',
+                                     command=self.root.quit)
+
         self.WEAVEBUTTON = tk.Button(self.root, text='Weave',
                                      command=self.weave)
 
@@ -66,14 +73,18 @@ class Application():
         
         self.root = root
         self.root.title("Kemon")
-        self.root.geometry("150x150")
+        self.root.geometry("500x500")
 
         self.createWidgets()
 
         self.PANEL.grid()
         self.WEAVEBUTTON.grid()
+        self.GRIDBUTTON.grid()
         self.QUITBUTTON.grid()
-        
+        self.WIDTHSCALE.grid()
+        self.HEIGHTSCALE.grid()
+        self.THREADLESCALE.grid()
+
 root = tk.Tk()
 app = Application(root)
 root.mainloop()
