@@ -1,5 +1,7 @@
 venv/
+temp/
 cefpython/
 .DS_Store
 .#*
 __pycache__/
+*.pyc
