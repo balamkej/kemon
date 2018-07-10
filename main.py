@@ -52,8 +52,8 @@ class Application():
         self.WIDTHSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Width", orient=tk.HORIZONTAL)
         self.HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Height", orient=tk.HORIZONTAL)
         self.THREADLESCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
-        self.TILEHEIGHT = tk.Scale(self.root, from_=0, to=100, label="Tile Height", orient=tk.HORIZONTAL)
-        self.TILEWIDTH = tk.Scale(self.root, from_=0, to=100, label="Tile Width", orient=tk.HORIZONTAL)
+        self.TILEHEIGHT = tk.Scale(self.root, from_=0, to=100, label="Tile Height x Times", orient=tk.HORIZONTAL)
+        self.TILEWIDTH = tk.Scale(self.root, from_=0, to=100, label="Tile Width x Times", orient=tk.HORIZONTAL)
         self.GRIDBUTTON = tk.Button(self.root, text='Set-up Loom',
                                      command=self.root.quit)
 
