@@ -26,20 +26,23 @@ def gridArray(grid, height, width):
     return gridArray
 
 class Application():
-    h = 4
-    w = 10
-    
+
     def weave(self):
-        th_grid = gridArray(self.THREADING,self.h,self.w)
-        tr_grid = gridArray(self.TREADLE,self.w,self.h)
-        ti_grid = gridArray(self.TIEUP,self.h,self.h)
+        th_h = int(self.TH_HEIGHTSCALE.get())
+        th_w = int(self.TH_WIDTHSCALE.get())
+        tr_h = int(self.TR_HEIGHTSCALE.get())        
+
+        th_grid = gridArray(self.THREADING,th_h,th_w)
+        tr_grid = gridArray(self.TREADLE,tr_h,th_h)
+        ti_grid = gridArray(self.TIEUP,th_h,th_h)
         weav_img = wv.weave(tr_grid,th_grid,ti_grid)
+        weav_img = np.tile(weav_img, (100,100))
         plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
 
     def makeLoom(self):
-        th_h = self.TH_HEIGHTSCALE.get()
-        th_w = self.TH_WIDTHSCALE.get()
-        tr_h = self.TR_HEIGHTSCALE.get()        
+        th_h = int(self.TH_HEIGHTSCALE.get())
+        th_w = int(self.TH_WIDTHSCALE.get())
+        tr_h = int(self.TR_HEIGHTSCALE.get())        
 
         self.THREADING = tk.Toplevel()
         self.THREADING.title("Threading Grid")
@@ -55,11 +58,35 @@ class Application():
 
     
     def createWidgets(self):
-        self.TH_WIDTHSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Width", orient=tk.HORIZONTAL)
-        self.TH_HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Height", orient=tk.HORIZONTAL)
-        self.TR_HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
-        self.TILEHEIGHT = tk.Scale(self.root, from_=0, to=100, label="Tile Height x Times", orient=tk.HORIZONTAL)
-        self.TILEWIDTH = tk.Scale(self.root, from_=0, to=100, label="Tile Width x Times", orient=tk.HORIZONTAL)
+        self.TH_WIDTHSCALE = tk.Spinbox(self.root, from_=1, to=100, width=4,
+                           font=Font(family='Helvetica',
+                           size=20,
+                           weight='bold'))
+        tk.Label(self.TH_WIDTHSCALE, text="Threading Width") 
+
+        self.TH_HEIGHTSCALE = tk.Spinbox(self.root, from_=1, to=100, width=4,
+                           font=Font(family='Helvetica',
+                           size=20,
+                           weight='bold'))
+        tk.Label(self.TH_HEIGHTSCALE, text="Threading Height") 
+
+        self.TR_HEIGHTSCALE = tk.Spinbox(self.root, from_=1, to=100, width=4,
+                           font=Font(family='Helvetica',
+                           size=20,
+                           weight='bold'))
+        tk.Label(self.TR_HEIGHTSCALE, text="Treadle Height")
+
+        self.TILEHEIGHT = tk.Spinbox(self.root, from_=1, to=100, width=4,
+                           font=Font(family='Helvetica',
+                           size=20,
+                           weight='bold'))
+        tk.Label(self.TILEHEIGHT, text="Tile Height X Times")
+
+        self.TILEWIDTH = tk.Spinbox(self.root, from_=1, to=100, width=4,
+                           font=Font(family='Helvetica',
+                           size=20,
+                           weight='bold'))
+        tk.Label(self.TILEWIDTH, text="Tile Width X Times")
 
         self.GRIDBUTTON = tk.Button(self.root, text='Set-up Loom',
                                      command=self.makeLoom)
