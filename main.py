@@ -37,27 +37,27 @@ class Application():
         plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
 
     def makeLoom(self):
-        h = self.HEIGHTSCALE.get()
-        h2 = self.TREADLESCALE.get()
-        w = self.WIDTHSCALE.get()        
+        th_h = self.TH_HEIGHTSCALE.get()
+        th_w = self.TH_WIDTHSCALE.get()
+        tr_h = self.TR_HEIGHTSCALE.get()        
 
         self.THREADING = tk.Toplevel()
         self.THREADING.title("Threading Grid")
-        buildGrid(h,w,self.THREADING)
+        buildGrid(th_h,th_w,self.THREADING)
 
         self.TREADLE = tk.Toplevel()
         self.TREADLE.title("Treadle Grid")
-        buildGrid(h2,h,self.TREADLE)
+        buildGrid(tr_h,th_h,self.TREADLE)
 
         self.TIEUP = tk.Toplevel()
         self.TIEUP.title("Tie-Up Grid")
-        buildGrid(h,h,self.TIEUP)
+        buildGrid(th_h,th_h,self.TIEUP)
 
     
     def createWidgets(self):
-        self.WIDTHSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Width", orient=tk.HORIZONTAL)
-        self.HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Height", orient=tk.HORIZONTAL)
-        self.TREADLESCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
+        self.TH_WIDTHSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Width", orient=tk.HORIZONTAL)
+        self.TH_HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Height", orient=tk.HORIZONTAL)
+        self.TR_HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
         self.TILEHEIGHT = tk.Scale(self.root, from_=0, to=100, label="Tile Height x Times", orient=tk.HORIZONTAL)
         self.TILEWIDTH = tk.Scale(self.root, from_=0, to=100, label="Tile Width x Times", orient=tk.HORIZONTAL)
 
@@ -89,9 +89,9 @@ class Application():
         self.WEAVEBUTTON.grid()
         self.GRIDBUTTON.grid()
         self.QUITBUTTON.grid()
-        self.WIDTHSCALE.grid()
-        self.HEIGHTSCALE.grid()
-        self.TREADLESCALE.grid()
+        self.TH_WIDTHSCALE.grid()
+        self.TH_HEIGHTSCALE.grid()
+        self.TR_HEIGHTSCALE.grid()
         self.TILEWIDTH.grid()
         self.TILEHEIGHT.grid()
 
