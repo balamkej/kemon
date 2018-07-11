@@ -31,12 +31,14 @@ class Application():
         th_h = int(self.TH_HEIGHTSCALE.get())
         th_w = int(self.TH_WIDTHSCALE.get())
         tr_h = int(self.TR_HEIGHTSCALE.get())        
+        tile_h = int(self.TILEHEIGHT.get())
+        tile_w = int(self.TILEWIDTH.get())
 
         th_grid = gridArray(self.THREADING,th_h,th_w)
         tr_grid = gridArray(self.TREADLE,tr_h,th_h)
         ti_grid = gridArray(self.TIEUP,th_h,th_h)
         weav_img = wv.weave(tr_grid,th_grid,ti_grid)
-        weav_img = np.tile(weav_img, (100,100))
+        weav_img = np.tile(weav_img, (tile_h,tile_w))
         plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
 
     def makeLoom(self):
