@@ -37,23 +37,27 @@ class Application():
         plt.imsave('temp/' + 'test.png', weav_img, cmap=cm.gray)
 
     def makeLoom(self):
+        h = self.HEIGHTSCALE.get()
+        h2 = self.TREADLESCALE.get()
+        w = self.WIDTHSCALE.get()        
+
         self.THREADING = tk.Toplevel()
         self.THREADING.title("Threading Grid")
-        buildGrid(self.h,self.w,self.THREADING)
+        buildGrid(h,w,self.THREADING)
 
         self.TREADLE = tk.Toplevel()
         self.TREADLE.title("Treadle Grid")
-        buildGrid(self.w,self.h,self.TREADLE)
+        buildGrid(h2,h,self.TREADLE)
 
         self.TIEUP = tk.Toplevel()
         self.TIEUP.title("Tie-Up Grid")
-        buildGrid(self.h,self.h,self.TIEUP)
+        buildGrid(h,h,self.TIEUP)
 
     
     def createWidgets(self):
         self.WIDTHSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Width", orient=tk.HORIZONTAL)
         self.HEIGHTSCALE = tk.Scale(self.root, from_=0, to=100, label="Threading Height", orient=tk.HORIZONTAL)
-        self.THREADLESCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
+        self.TREADLESCALE = tk.Scale(self.root, from_=0, to=100, label="Treadle Height", orient=tk.HORIZONTAL)
         self.TILEHEIGHT = tk.Scale(self.root, from_=0, to=100, label="Tile Height x Times", orient=tk.HORIZONTAL)
         self.TILEWIDTH = tk.Scale(self.root, from_=0, to=100, label="Tile Width x Times", orient=tk.HORIZONTAL)
 
@@ -87,7 +91,7 @@ class Application():
         self.QUITBUTTON.grid()
         self.WIDTHSCALE.grid()
         self.HEIGHTSCALE.grid()
-        self.THREADLESCALE.grid()
+        self.TREADLESCALE.grid()
         self.TILEWIDTH.grid()
         self.TILEHEIGHT.grid()
 
