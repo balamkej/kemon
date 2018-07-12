@@ -19,9 +19,9 @@ def buildGrid(h,w,f):
                            weight='bold'))
             b.grid(row=i, column=j, padx=10, pady=10)
 
-def gridArray(grid, height, width):
-    children = [e.get() for e in grid.winfo_children()]
-    gridArray = np.reshape(children, (height,width))
+def gridArray(g,h,w):
+    children = [e.get() for e in g.winfo_children()]
+    gridArray = np.reshape(children, (h,w))
     gridArray = gridArray.astype(np.float)
     return gridArray
 
@@ -49,16 +49,27 @@ class Application():
         self.THREADING = tk.Toplevel()
         self.THREADING.title("Threading Grid")
         buildGrid(th_h,th_w,self.THREADING)
+        SAVE_TH = tk.Button(self.THREADING, text="Save Pattern", command=quit)
+        SAVE_TH.grid()
+        LOAD_TH = tk.Button(self.THREADING, text="Load Pattern", command=quit)
+        LOAD_TH.grid()
 
         self.TREADLE = tk.Toplevel()
         self.TREADLE.title("Treadle Grid")
         buildGrid(tr_h,th_h,self.TREADLE)
+        SAVE_TR = tk.Button(self.TREADLE, text="Save Pattern", command=quit)
+        SAVE_TR.grid()
+        LOAD_TR = tk.Button(self.TREADLE, text="Load Pattern", command=quit)
+        LOAD_TR.grid()
 
         self.TIEUP = tk.Toplevel()
         self.TIEUP.title("Tie-Up Grid")
         buildGrid(th_h,th_h,self.TIEUP)
+        SAVE_TI = tk.Button(self.TIEUP, text="Save Pattern", command=quit)
+        SAVE_TI.grid()
+        LOAD_TI = tk.Button(self.TIEUP, text="Load Pattern", command=quit)
+        LOAD_TI.grid()
 
-    
     def createWidgets(self):
         self.TH_WIDTHSCALE = tk.Spinbox(self.root, from_=1, to=100, width=4,
                            font=Font(family='Helvetica',
@@ -98,16 +109,13 @@ class Application():
 
         self.QUITBUTTON = tk.Button(self.root, text='Quit',
                                      command=self.root.quit)
-
-        
+     
         path = "resources/icon.jpg"
         img = ImageTk.PhotoImage(Image.open(path))
         self.PANEL = tk.Label(self.root, image=img)
         self.PANEL.image = img
-    
-    
-    def __init__(self, root): 
         
+    def __init__(self, root): 
         self.root = root
         self.root.title("Kemon")
         self.root.geometry("500x500")
